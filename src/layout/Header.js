@@ -23,7 +23,7 @@ export const Header = () => {
             await dispatch(aboutListView())
             setLoading(false)
         }
-        loadAbout();
+        loadAbout(); 
 
         const loadCourse = async () => {
             await dispatch(courseListView())

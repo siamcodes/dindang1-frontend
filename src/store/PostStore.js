@@ -161,7 +161,7 @@ const postSlice = createSlice({
                 post: action.payload,
                 posts: updatedPosts
             }
-        },
+        }
 
     }
 })
