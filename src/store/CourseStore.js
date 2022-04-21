@@ -3,7 +3,7 @@ import {alertSliceActions} from './AlertStore'
 
 // CourseListView
 export const courseListView = () => async (dispatch) => {
-    let res = await fetch('/courses')
+    let res = await fetch('/api/courses')
     let data = await res.json()
     if(data.message){
         dispatch(alertSliceActions.showAlert({message:data.message, variant:'alert-danger'}))
@@ -16,7 +16,7 @@ export const courseListView = () => async (dispatch) => {
 // Course Create One View
 export const courseCreateOneView = (courseObj) => async (dispatch) => {
     console.log(...courseObj)
-    let res = await fetch('/courses/createOne',{
+    let res = await fetch('/api/courses/createOne',{
         method:'POST',
         body: courseObj
     })
@@ -32,7 +32,7 @@ export const courseCreateOneView = (courseObj) => async (dispatch) => {
 // Create Multiple View
 export const courseCreateMultipleView = (courseObj) => async (dispatch) => {
     console.log(...courseObj)
-    let res = await fetch('/courses/createMultiple',{
+    let res = await fetch('/api/courses/createMultiple',{
         method:'POST',
         body: courseObj
     })
@@ -48,7 +48,7 @@ export const courseCreateMultipleView = (courseObj) => async (dispatch) => {
 // Create PDF View
 export const courseCreatePDFView = (courseObj) => async (dispatch) => {
     console.log(...courseObj)
-    let res = await fetch('/courses/createPDF',{
+    let res = await fetch('/api/courses/createPDF',{
         method:'POST',
         body: courseObj
     })
@@ -63,7 +63,7 @@ export const courseCreatePDFView = (courseObj) => async (dispatch) => {
 
 // Course Delete View
 export const courseDeleteView = (courseID) => async (dispatch) => {
-    let res = await fetch(`/courses/delete/${courseID}`,{
+    let res = await fetch(`/api/courses/delete/${courseID}`,{
         method:'DELETE',
     })
     let data = await res.json()
@@ -75,7 +75,7 @@ export const courseDeleteView = (courseID) => async (dispatch) => {
 }
 
 export const courseDetailView = (courseID) => async (dispatch) => {
-    let res = await fetch(`/courses/${courseID}`)
+    let res = await fetch(`/api/courses/${courseID}`)
 
     let data = await res.json()
     console.log('Hi ',data)

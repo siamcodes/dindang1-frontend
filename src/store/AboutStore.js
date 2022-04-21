@@ -4,7 +4,7 @@ import { alertSliceActions } from './AlertStore';
 
 // AboutListView
 export const aboutListView = () => async (dispatch) => {
-    let res = await fetch('/abouts')
+    let res = await fetch('/api/abouts')
     
     let data = await res.json()
     if (data.message) {
@@ -18,7 +18,7 @@ export const aboutListView = () => async (dispatch) => {
 // About Create One View
 export const aboutCreateOneView = (aboutObj) => async (dispatch) => {
     console.log(...aboutObj)
-    let res = await fetch('/abouts/createOne', {
+    let res = await fetch('/api/abouts/createOne', {
         method: 'POST',
         body: aboutObj
     })
@@ -34,7 +34,7 @@ export const aboutCreateOneView = (aboutObj) => async (dispatch) => {
 // Create Multiple View
 export const aboutCreateMultipleView = (aboutObj) => async (dispatch) => {
     console.log(...aboutObj)
-    let res = await fetch('/abouts/createMultiple', {
+    let res = await fetch('/api/abouts/createMultiple', {
         method: 'POST',
         body: aboutObj
     })
@@ -50,7 +50,7 @@ export const aboutCreateMultipleView = (aboutObj) => async (dispatch) => {
 // Create PDF View
 export const aboutCreatePDFView = (aboutObj) => async (dispatch) => {
     console.log(...aboutObj)
-    let res = await fetch('/abouts/createPDF', {
+    let res = await fetch('/api/abouts/createPDF', {
         method: 'POST',
         body: aboutObj
     })
@@ -65,7 +65,7 @@ export const aboutCreatePDFView = (aboutObj) => async (dispatch) => {
 
 // About Delete View
 export const aboutDeleteView = (aboutID) => async (dispatch) => {
-    let res = await fetch(`/abouts/delete/${aboutID}`, {
+    let res = await fetch(`/api/abouts/delete/${aboutID}`, {
         method: 'DELETE',
     })
 
@@ -79,7 +79,7 @@ export const aboutDeleteView = (aboutID) => async (dispatch) => {
 
 
 export const aboutDetailView = (aboutID) => async (dispatch) => {
-    let res = await fetch(`/abouts/${aboutID}`)
+    let res = await fetch(`/api/abouts/${aboutID}`)
 
     let data = await res.json()
     console.log('Hi--> ',data)

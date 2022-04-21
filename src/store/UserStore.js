@@ -3,7 +3,7 @@ import { alertSliceActions } from './AlertStore'
 import emailjs from 'emailjs-com'
 
 export const userRegisterView = (userObj) => async (dispatch) => {
-    let res = await fetch('/users/register', {
+    let res = await fetch('/api/users/register', {
         method: 'POST',
         headers:{
             'Content-type':'application/json'
@@ -26,7 +26,7 @@ export const userRegisterView = (userObj) => async (dispatch) => {
 
 
 export const userLoginView = (userObj) => async (dispatch) => {
-    let res = await fetch('/users/login', {
+    let res = await fetch('/api/users/login', {
         method: 'POST',
         headers: {
             'Content-type':'application/json'
@@ -50,7 +50,7 @@ export const userLoginView = (userObj) => async (dispatch) => {
 
 
 export const userVerifyView = (token) => async (dispatch) => {
-    let res = await fetch('/users/verify',{
+    let res = await fetch('/api/users/verify',{
         headers:{
             'Content-type':'application/json',
             'Authorization':`Token ${token}`
@@ -69,7 +69,7 @@ export const userVerifyView = (token) => async (dispatch) => {
 
 
 export const userPasswordResetRequestView = (emailObj) => async (dispatch) => {
-    let res = await fetch('/users/passwordResetRequest',{
+    let res = await fetch('/api/users/passwordResetRequest',{
         method: 'POST',
         headers:{
             'Content-type':'application/json'
@@ -94,7 +94,7 @@ export const userPasswordResetRequestView = (emailObj) => async (dispatch) => {
 
 
 export const userPasswordResetFormView = (passwordObj) => async (dispatch) => {
-    let res = await fetch('/users/passwordResetForm',{
+    let res = await fetch('/api/users/passwordResetForm',{
         method:'POST',
         headers:{
             'Content-type':'application/json'

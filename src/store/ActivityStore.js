@@ -3,7 +3,7 @@ import {alertSliceActions} from './AlertStore'
 
 //gListView
 export const activityListView = () => async (dispatch) => {
-    let res = await fetch('/activities')
+    let res = await fetch('/api/activities')
     let data = await res.json()
     if(data.message){
         dispatch(alertSliceActions.showAlert({message:data.message, variant:'alert-danger'}))
@@ -16,7 +16,7 @@ export const activityListView = () => async (dispatch) => {
 // Create One View
 export const activityCreateOneView = (activityObj) => async (dispatch) => {
     console.log(...activityObj)
-    let res = await fetch('/activities/createOne',{
+    let res = await fetch('/api/activities/createOne',{
         method:'POST',
         body: activityObj
     })
@@ -32,7 +32,7 @@ export const activityCreateOneView = (activityObj) => async (dispatch) => {
 // Create Multiple View
 export const activityCreateMultipleView = (activityObj) => async (dispatch) => {
     console.log(...activityObj)
-    let res = await fetch('/activities/createMultiple',{
+    let res = await fetch('/api/activities/createMultiple',{
         method:'POST',
         body: activityObj
     })
@@ -48,7 +48,7 @@ export const activityCreateMultipleView = (activityObj) => async (dispatch) => {
 // Create PDF View
 export const activityCreatePDFView = (activityObj) => async (dispatch) => {
     console.log(...activityObj)
-    let res = await fetch('/activities/createPDF',{
+    let res = await fetch('/api/activities/createPDF',{
         method:'POST',
         body: activityObj
     })
@@ -63,7 +63,7 @@ export const activityCreatePDFView = (activityObj) => async (dispatch) => {
 
 // Delete View
 export const activityDeleteView = (activityID) => async (dispatch) => {
-    let res = await fetch(`/activities/delete/${activityID}`,{
+    let res = await fetch(`/api/activities/delete/${activityID}`,{
         method:'DELETE',
     })
     let data = await res.json()
@@ -75,7 +75,7 @@ export const activityDeleteView = (activityID) => async (dispatch) => {
 }
 
 export const activityDetailView = (activityID) => async (dispatch) => {
-    let res = await fetch(`/activities/${activityID}`)
+    let res = await fetch(`/api/activities/${activityID}`)
 
     let data = await res.json()
     //console.log('Hi--> ',data)

@@ -3,7 +3,7 @@ import {alertSliceActions} from './AlertStore'
 
 // BlogListView
 export const blogListView = () => async (dispatch) => {
-    let res = await fetch('/blogs')
+    let res = await fetch('/api/blogs')
     let data = await res.json()
     if(data.message){
         dispatch(alertSliceActions.showAlert({message:data.message, variant:'alert-danger'}))
@@ -16,7 +16,7 @@ export const blogListView = () => async (dispatch) => {
 // Blog Create One View
 export const blogCreateOneView = (blogObj) => async (dispatch) => {
     console.log(...blogObj)
-    let res = await fetch('/blogs/createOne',{
+    let res = await fetch('/api/blogs/createOne',{
         method:'POST',
         body: blogObj
     })
@@ -32,7 +32,7 @@ export const blogCreateOneView = (blogObj) => async (dispatch) => {
 // Create Multiple View
 export const blogCreateMultipleView = (blogObj) => async (dispatch) => {
     console.log(...blogObj)
-    let res = await fetch('/blogs/createMultiple',{
+    let res = await fetch('/api/blogs/createMultiple',{
         method:'POST',
         body: blogObj
     })
@@ -48,7 +48,7 @@ export const blogCreateMultipleView = (blogObj) => async (dispatch) => {
 // Create PDF View
 export const blogCreatePDFView = (blogObj) => async (dispatch) => {
     console.log(...blogObj)
-    let res = await fetch('/blogs/createPDF',{
+    let res = await fetch('/api/blogs/createPDF',{
         method:'POST',
         body: blogObj
     })
@@ -63,7 +63,7 @@ export const blogCreatePDFView = (blogObj) => async (dispatch) => {
 
 // Blog Delete View
 export const blogDeleteView = (blogID) => async (dispatch) => {
-    let res = await fetch(`/blogs/delete/${blogID}`,{
+    let res = await fetch(`/api/blogs/delete/${blogID}`,{
         method:'DELETE',
     })
     let data = await res.json()
@@ -75,7 +75,7 @@ export const blogDeleteView = (blogID) => async (dispatch) => {
 }
 
 export const blogDetailView = (blogID) => async (dispatch) => {
-    let res = await fetch(`/blogs/${blogID}`)
+    let res = await fetch(`/api/blogs/${blogID}`)
 
     let data = await res.json()
     console.log('Hi--> ',data)

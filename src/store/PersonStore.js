@@ -3,7 +3,7 @@ import {alertSliceActions} from './AlertStore'
 
 // PersongListView
 export const personListView = () => async (dispatch) => {
-    let res = await fetch('/persons')
+    let res = await fetch('/api/persons')
     let data = await res.json()
     if(data.message){
         dispatch(alertSliceActions.showAlert({message:data.message, variant:'alert-danger'}))
@@ -16,7 +16,7 @@ export const personListView = () => async (dispatch) => {
 // Person Create One View
 export const personCreateOneView = (personObj) => async (dispatch) => {
     console.log(...personObj)
-    let res = await fetch('/persons/createOne',{
+    let res = await fetch('/api/persons/createOne',{
         method:'POST',
         body: personObj
     })
@@ -32,7 +32,7 @@ export const personCreateOneView = (personObj) => async (dispatch) => {
 // Create Multiple View
 export const personCreateMultipleView = (personObj) => async (dispatch) => {
     console.log(...personObj)
-    let res = await fetch('/persons/createMultiple',{
+    let res = await fetch('/api/persons/createMultiple',{
         method:'POST',
         body: personObj
     })
@@ -48,7 +48,7 @@ export const personCreateMultipleView = (personObj) => async (dispatch) => {
 // Create PDF View
 export const personCreatePDFView = (personObj) => async (dispatch) => {
     console.log(...personObj)
-    let res = await fetch('/persons/createPDF',{
+    let res = await fetch('/api/persons/createPDF',{
         method:'POST',
         body: personObj
     })
@@ -63,7 +63,7 @@ export const personCreatePDFView = (personObj) => async (dispatch) => {
 
 // Delete View
 export const personDeleteView = (personID) => async (dispatch) => {
-    let res = await fetch(`/persons/delete/${personID}`,{
+    let res = await fetch(`/api/persons/delete/${personID}`,{
         method:'DELETE',
     })
     let data = await res.json()
@@ -75,7 +75,7 @@ export const personDeleteView = (personID) => async (dispatch) => {
 }
 
 export const personDetailView = (personID) => async (dispatch) => {
-    let res = await fetch(`/persons/${personID}`)
+    let res = await fetch(`/api/persons/${personID}`)
 
     let data = await res.json()
     console.log('Hi--> ',data)

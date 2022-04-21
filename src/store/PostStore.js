@@ -3,7 +3,7 @@ import { alertSliceActions } from './AlertStore'
 
 //ListView
 export const postListView = () => async (dispatch) => {
-    let res = await fetch('/posts')
+    let res = await fetch('/api/posts')
     let data = await res.json()
     if (data.message) {
         dispatch(alertSliceActions.showAlert({ message: data.message, variant: 'alert-danger' }))
@@ -80,7 +80,7 @@ export const postDeleteView = (postID) => async (dispatch) => {
 
 //Detail
 export const postDetailView = (postID) => async (dispatch) => {
-    let res = await fetch(`/posts/${postID}`)
+    let res = await fetch(`/api/posts/${postID}`)
 
     let data = await res.json()
     if (data.error) {

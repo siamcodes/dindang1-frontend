@@ -3,7 +3,7 @@ import {alertSliceActions} from './AlertStore'
 
 // SlideListView
 export const slideListView = () => async (dispatch) => {
-    let res = await fetch('/slides')
+    let res = await fetch('/api/slides')
     let data = await res.json()
     if(data.message){
         dispatch(alertSliceActions.showAlert({message:data.message, variant:'alert-danger'}))
@@ -16,7 +16,7 @@ export const slideListView = () => async (dispatch) => {
 // Slide Create One View
 export const slideCreateOneView = (slideObj) => async (dispatch) => {
     console.log(...slideObj)
-    let res = await fetch('/slides/createOne',{
+    let res = await fetch('/api/slides/createOne',{
         method:'POST',
         body: slideObj
     })
@@ -32,7 +32,7 @@ export const slideCreateOneView = (slideObj) => async (dispatch) => {
 // Create Multiple View
 export const slideCreateMultipleView = (slideObj) => async (dispatch) => {
     console.log(...slideObj)
-    let res = await fetch('/slides/createMultiple',{
+    let res = await fetch('/api/slides/createMultiple',{
         method:'POST',
         body: slideObj
     })
@@ -48,7 +48,7 @@ export const slideCreateMultipleView = (slideObj) => async (dispatch) => {
 // Create PDF View
 export const slideCreatePDFView = (slideObj) => async (dispatch) => {
     console.log(...slideObj)
-    let res = await fetch('/slides/createPDF',{
+    let res = await fetch('/api/slides/createPDF',{
         method:'POST',
         body: slideObj
     })
@@ -63,7 +63,7 @@ export const slideCreatePDFView = (slideObj) => async (dispatch) => {
 
 //  Delete View
 export const slideDeleteView = (slideID) => async (dispatch) => {
-    let res = await fetch(`/slides/delete/${slideID}`,{
+    let res = await fetch(`/api/slides/delete/${slideID}`,{
         method:'DELETE',
     })
     let data = await res.json()
@@ -75,7 +75,7 @@ export const slideDeleteView = (slideID) => async (dispatch) => {
 }
 
 export const slideDetailView = (slideID) => async (dispatch) => {
-    let res = await fetch(`/slides/${slideID}`)
+    let res = await fetch(`/api/slides/${slideID}`)
 
     let data = await res.json()
     console.log('Hi--> ',data)
