@@ -26,9 +26,11 @@ export const Blogs = () => {
         blogs.length > 0 ?
             <>
                 {user.role == 'admin' && (
-                    <Link to="/blogOne" type="button" className="ิbtn btn-primary btn-lg"> + เพิ่มข้อมูล </Link>
+                    <div className='pt-1'>
+                        <Link to="/blogOne" type="button" className="ิbtn btn-primary btn-sm"> + เพิ่มข้อมูล </Link>
+                    </div>
                 )}
-                <div className='row row-cols-1 row-cols-md-3 g-2 pt-2'>
+                <div className='row row-cols-1 row-cols-md-3 g-2 pt-1'>
                     {blogs.map(blog => (
                         <Blog key={blog._id} blog={blog} />
                     ))}

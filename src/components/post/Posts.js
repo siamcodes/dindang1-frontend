@@ -25,16 +25,16 @@ export const Posts = () => {
     return (
         <div>
             {user.role === 'admin' && (
-                <>
-                    <Link to="/postOne" type="button" className="ิbtn btn-primary"> + เพิ่มข้อมูล </Link> {' '}
-                    <Link to="/postMultiple" type="button" className="ิbtn btn-info"> + เพิ่มข้อมูลได้หลายรูป </Link>{' '}
-                    <Link to="/postPDF" type="button" className="ิbtn btn-danger"> + เพิ่มข้อมูล PDF </Link>{' '}
-                </>
+                <div className='pt-1'>
+                    <Link to="/postOne" type="button" className="ิbtn btn-primary btn-sm"> + เพิ่มข้อมูล </Link> {' '}
+                    <Link to="/postMultiple" type="button" className="ิbtn btn-info btn-sm"> + เพิ่มข้อมูลได้หลายรูป </Link>{' '}
+                    <Link to="/postPDF" type="button" className="ิbtn btn-danger btn-sm"> + เพิ่มข้อมูล PDF </Link>{' '}
+                </div>
             )}
 
             {!loading ?
                 posts.length > 0 ?
-                    <div className='row row-cols-1 row-cols-md-3 g-2 pt-2'>
+                    <div className='row row-cols-1 row-cols-md-3 g-2 pt-1'>
                         {posts.map(post => (<Post key={post._id} post={post} />))}
                     </div>
                     :

@@ -32,7 +32,7 @@ const Apply = () => {
 
   return (
     !loading ?
-      <div className="row">
+      <div className="row pt-1">
         <div className="col-md-9">
           <div className="card">
             {/*  <img className='img-fluid' src={about.image} alt='aboutImage' /> */}

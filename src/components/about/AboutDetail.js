@@ -31,7 +31,7 @@ export const AboutDetail = () => {
 
     return (
         !loading ?
-            <div className="row">
+            <div className="row pt-1">
                 <div className="col-md-9">
                     <div className="card">
                         {/* <img className='img-fluid' src={about.image} alt='aboutImage' />  */}
@@ -55,7 +55,7 @@ export const AboutDetail = () => {
                 <div className="col-md-3">
                     <ul className="list-group list-group-flush mb-3">
                         {abouts.map(about => (
-                            <li className="list-group-item list-group-item-action pointer fw-light" onClick={() => { window.location.href = `/about/${about._id}` }}> {about.title} </li>
+                            <li key={about._id} className="list-group-item list-group-item-action pointer fw-light" onClick={() => { window.location.href = `/about/${about._id}` }}> {about.title} </li>
                         ))}
                     </ul>
                 </div>

@@ -35,10 +35,10 @@ export const Slide = ({ slide }) => {
                     </div>
                     {slide.pdfFile && <Link to={slide.pdfFile} target='_blank'>PDF File: {slide.pdfFile}</Link>}
 
-                    {user.username && user.role && (
+                    {user.username && user.role===`admin` && (
                         <div className='card-body'>
-                            <button className='btn btn-danger' onClick={slideDeleteHandler}>Delete</button> {' '}
-                            <button className='btn btn-info' onClick={slideEditHandler}>Edit</button>
+                            <button className='btn btn-danger btn-sm' onClick={slideDeleteHandler}>Delete</button> {' '}
+                            <button className='btn btn-info btn-sm' onClick={slideEditHandler}>Edit</button>
                         </div>
                     )}
                 </div>

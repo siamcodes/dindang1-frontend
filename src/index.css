@@ -25,6 +25,10 @@ code {
 
 .pointer {
   cursor: pointer;
+  
+}
+.pointer:hover{
+  color:red;
 }
 
 .avatar {

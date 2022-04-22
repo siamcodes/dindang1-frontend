@@ -39,10 +39,10 @@ export const Header = () => {
     }
 
     return (
-        <Navbar bg="dark" expand="md" variant="dark">
+        <Navbar bg="secondary" expand="md" variant="dark">
             <Container fluid>
                 <Navbar.Brand as={Link} to="/">
-                    <img src={logo} alt='logo' style={{ objectFit: "cover", height:'40px' }} />
+                    <img src={logo} alt='logo' style={{ objectFit: "cover", maxHeight:'32px' }} />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -68,7 +68,6 @@ export const Header = () => {
                                     ))}
                                 </DropdownSubmenu>
                             ))}
-
                         </NavDropdownMenu>
                         <NavDropdown title="หลักสูตรทั้งหมด" id="about-nav-dropdown">
                             {courses.map(course => (
@@ -86,13 +85,14 @@ export const Header = () => {
                         <Nav.Link as={Link} to="/contact">ติดต่อเรา</Nav.Link>
                         {!user.username && (
                             <>
-                                <Nav.Link as={Link} to="/register">Register</Nav.Link>
-                                <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                                <Nav.Link as={Link} to="/register"><i className="bi bi-person-plus"/> Register</Nav.Link>
+                                <Nav.Link as={Link} to="/login"><i className="bi bi-box-arrow-in-right"/> Login</Nav.Link>
                             </>
                         )}
                         {user.username && (
                             <NavDropdown title={user.username} id="user-nav-dropdown" align="end" >
-                                <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
+                                
+                                <NavDropdown.Item as={Link} to="/profile"><i className="bi bi-person-bounding-box"></i> Profile</NavDropdown.Item>
                                 {user.role === 'admin' && (
                                     <>
                                         <NavDropdown.Divider />
@@ -113,7 +113,7 @@ export const Header = () => {
                                     </>
                                 )}
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                                <NavDropdown.Item onClick={logoutHandler}> <i className="bi bi-box-arrow-right"/> Logout</NavDropdown.Item>
                             </NavDropdown>
                         )}
                     </Nav>

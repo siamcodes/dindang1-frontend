@@ -3,7 +3,10 @@ import {alertSliceActions} from './AlertStore'
 
 // CourseListView
 export const courseListView = () => async (dispatch) => {
-    let res = await fetch('/api/courses')
+    let res = await fetch(`/api/courses`,{
+        method: 'GET',
+    })
+
     let data = await res.json()
     if(data.message){
         dispatch(alertSliceActions.showAlert({message:data.message, variant:'alert-danger'}))

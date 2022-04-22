@@ -18,7 +18,7 @@ export const Course = ({ course }) => {
     }
 
     return (
-        <div className='col'>
+        <div className='col pt-1'>
             <div className='card'>
                  {course.image && <img src={course.image} alt='sampleImage' style={{ maxHeight: '50px', objectFit: 'cover' }} />} 
                 <div className='card-body'>
@@ -34,10 +34,10 @@ export const Course = ({ course }) => {
                     </div>
                     {course.pdfFile && <Link to={course.pdfFile} target='_blank'>PDF File: {course.pdfFile}</Link>}
 
-                    {user.username && user.role && (
+                    {user.username && user.role===`admin` && (
                         <div className='card-body'>
-                            <button className='btn btn-danger' onClick={courseDeleteHandler}>Delete</button> {' '}
-                            <button className='btn btn-info' onClick={courseEditHandler}>Edit</button>
+                            <button className='btn btn-danger btn-sm' onClick={courseDeleteHandler}>Delete</button> {' '}
+                            <button className='btn btn-info btn-sm' onClick={courseEditHandler}>Edit</button>
                         </div>
                     )}
                 </div>

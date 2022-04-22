@@ -25,7 +25,7 @@ export const Slides = () => {
         slides.length > 0 ?
             <>
                 {user.role === 'admin' && (
-                    <Link to="/slideOne" type="button" className="ิbtn btn-primary btn-lg"> + เพิ่มข้อมูล </Link>
+                    <Link to="/slideOne" type="button" className="ิbtn btn-primary btn-sm"> + เพิ่มข้อมูล </Link>
                 )}
                 <div className='row row-cols-1 row-cols-md-3 g-2 pt-2'>
                     {slides.map(slide => (

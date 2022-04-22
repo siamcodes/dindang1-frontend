@@ -34,7 +34,7 @@ export const CourseDetail = () => {
 
 
     return (!loading ?
-        <div className="row">
+        <div className="row pt-1">
             <div className="col-md-9">
                 <div className="card">
                     {/*  <img className='img-fluid' src={course.image} alt='courseImage' /> */}
@@ -50,12 +50,12 @@ export const CourseDetail = () => {
                 {courseType.map((t) => (
                     <ul className="list-group list-group-flush mb-3" as={Link} to={`/courses`} >
                         <li style={{ listStyleType: 'none', fontWeight: 'bold', color: '#FF8000' }}>{t}</li>
-                        {courses.map(course => (
-                            <>
+                        {courses.map((course,index) => (
+                            <div key={index}>
                                 {course.courseType === t &&
                                     <li className="list-group-item list-group-item-action pointer fw-light" onClick={() => { window.location.href = `/course/${course._id}` }}>{course.title}</li>
                                 }
-                            </>
+                            </div>
                         ))}
                     </ul>
                 ))}

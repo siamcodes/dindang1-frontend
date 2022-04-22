@@ -35,10 +35,10 @@ export const Activity = ({ activity }) => {
                     </div>
                     {activity.pdfFile && <Link to={activity.pdfFile} target='_blank'>PDF File: {activity.pdfFile}</Link>}
 
-                    {user.username && user.role && (
+                    {user.username && user.role===`admin` && (
                         <div className='card-body'>
-                            <button className='btn btn-danger' onClick={activityDeleteHandler}>Delete</button> {' '}
-                            <button className='btn btn-info' onClick={activityEditHandler}>Edit</button>
+                            <button className='btn btn-danger btn-sm' onClick={activityDeleteHandler}>Delete</button> {' '}
+                            <button className='btn btn-info btn-sm' onClick={activityEditHandler}>Edit</button>
                         </div>
                     )}
                 </div>

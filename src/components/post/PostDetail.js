@@ -83,7 +83,7 @@ export const PostDetail = () => {
 
     return (
         !loading ?
-            <div className="row pt-2">
+            <div className="row pt-1">
                 <div className="col-md-9">
                     <AlertComponent />
                     <div className="card">

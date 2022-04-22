@@ -43,10 +43,10 @@ export const Post = ({ post }) => {
                             </div>
                     <div className='card-text'>{post.description}</div>
                     {post.pdfFile && <Link to={post.pdfFile} target='_blank'>PDF File: {post.pdfFile}</Link>}
-                    {user.username && user.role && (
+                    {user.username && user.role===`admin` && (
                         <>
-                            <button className='btn btn-danger' onClick={postDeleteHandler}>Delete</button> {''}
-                            <Link className='btn btn-info' to={`/postEdit/${post._id}`}>Edit</Link>
+                            <button className='btn btn-danger btn-sm' onClick={postDeleteHandler}>Delete</button> {''}
+                            <Link className='btn btn-info btn-sm' to={`/postEdit/${post._id}`}>Edit</Link>
                         </>
                     )}
                 </div>

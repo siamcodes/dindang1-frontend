@@ -30,7 +30,7 @@ const Contact = () => {
 
   return (
     !loading ?
-      <div className="row">
+      <div className="row pt-1">
         <div className="col-md-9">
           <div className="card">
             {/*  <img className='img-fluid' src={about.image} alt='aboutImage' /> */}
@@ -43,7 +43,7 @@ const Contact = () => {
             </div>
             <div className="card-body">
               <h2 className="card-title text-danger fw-bold ">
-                {about.title}
+                {about.title} <i className="bi bi-alarm"></i>
               </h2>
               {about.content &&
                 <div className="catd-text">{renderHTML(about.content)}</div>

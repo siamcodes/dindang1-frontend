@@ -34,10 +34,10 @@ export const Person = ({ person }) => {
                         ))}
                     </div>
                     {person.pdfFile && <Link to={person.pdfFile} target='_blank'>PDF File: {person.pdfFile}</Link>}
-                    {user.username && user.role && (
+                    {user.username && user.role===`admin` && (
                         <div className='card-body'>
-                            <button className='btn btn-danger' onClick={personDeleteHandler}>Delete</button> {' '}
-                            <button className='btn btn-info' onClick={personEditHandler}>Edit</button>
+                            <button className='btn btn-danger btn-sm' onClick={personDeleteHandler}>Delete</button> {' '}
+                            <button className='btn btn-info btn-sm' onClick={personEditHandler}>Edit</button>
                         </div>
                     )}
                 </div>
